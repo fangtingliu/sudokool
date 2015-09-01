@@ -5,10 +5,6 @@ var knex = require('knex')({
     user: 'root',
     password: '',
     database: 'sudokool'
-  },
-  pool: {
-    min: 0,
-    max: 7
   }
 });
 
