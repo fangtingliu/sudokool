@@ -12,6 +12,7 @@ body {
   font-weight: bold;
   text-align: center;
   margin: 20px;
+  margin-top: 30px;
 }
 
 #app table {
@@ -78,25 +79,23 @@ button.submit:hover {
   background-color: #093b5c;
 }
 
-.main a {
+.signin a,
+.signup a {
   color: black;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 2px;
-  border: 1px solid grey;
-  border-radius: 5px;
 }
 
 form {
-  margin: 10px;
+  margin: 15px;
 }
 
 form input[type=text], form input[type=password] {
   font-size: 13px;
   padding: 5px;
   margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
 }
 
 body .navigation{
@@ -162,4 +161,8 @@ li.home a {
 
 .navigation li.greeting a {
   width: 200px;
+}
+
+.signin, .signup {
+  margin: 30px;
 }

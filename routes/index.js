@@ -2,18 +2,28 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db.js');
 
+// Improvement Point //
+/*
+  1. add bcrypt to store password like in the database project;
+  2. create a model for server to access data throught knex;
+  3. send randomly generated board to client view presenter
+*/
+
 function checkUser(req, res) {
   if (req.cookies.user) {
     res.redirect('/user/' + req.cookies.user);
   } else {
     res.render('index', { user: false});
+
+    //attempt to pass the randomly generated borad to client side presenter
     // var id = Math.floor(Math.random() * 100);
     // console.log('id', id)
     // knex.select('board').from('newboards').where({id: id})
     //   .then(function(board){
     //     console.log('board', board);
-    //     res.render('index', { user: false, board: board })
+    //     res.render('index', { user: false, board: JSON.stringify(board) })
     //   });
+
   }
 };
 
