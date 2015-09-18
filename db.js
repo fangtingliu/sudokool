@@ -1,11 +1,13 @@
 var knex = require('knex')({
   client: 'mysql',
-  connection: {
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'sudokool'
-  }
+  connection: process.env.JAWSDB_URL,
+  ssl: true
+  // connection: {
+  //   host: '127.0.0.1',
+  //   user: 'root',
+  //   password: '',
+  //   database: 'sudokool'
+  // }
 });
 
 knex.schema.hasTable('users').then(function(exists) {
