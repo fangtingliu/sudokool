@@ -1,13 +1,11 @@
 var knex = require('knex')({
   client: 'mysql',
-  connection: process.env.JAWSDB_URL,
-  ssl: true
-  // connection: {
-  //   host: '127.0.0.1',
-  //   user: 'root',
-  //   password: '',
-  //   database: 'sudokool'
-  // }
+  connection: {
+    host: 'us-cdbr-iron-east-02.cleardb.net' //127.0.0.1',
+    user: 'bcc1fc80012395'//root',
+    password: 'bfc5370d' //'',
+    database: 'sudokool'
+  }
 });
 
 knex.schema.hasTable('users').then(function(exists) {
