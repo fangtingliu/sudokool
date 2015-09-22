@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db.js');
+var bcrypt   = require('bcrypt-nodejs');
 
 // Improvement Point //
 /*
@@ -64,16 +65,32 @@ router.post('/signup', function(req, res, next) {
         console.log('Account already exists');
         res.redirect(409, 'signup');
       } else {
-        knex('users').insert({username: username, password: password})
-        .then(function (result) {
-          var cookie = req.cookies;
-          res.cookie('user', username);
-          res.redirect('/user/' + username);
-        })
-        .catch(function(err){
-          console.log('err', err);
-          res.redirect(500, 'signup');
-        })
+        bcrypt.genSalt(10, function(err, salt) {
+          if (err) {
+            return next(err);
+          }
+
+          // hash the password along with our new salt
+          bcrypt.hash(password, salt, null, function(err, hash) {
+            if (err) {
+              return console.error(err);
+            }
+
+            // override the cleartext password with the hashed one
+            password = hash;
+            salt = salt;
+            knex('users').insert({username: username, password: password})
+            .then(function (result) {
+              var cookie = req.cookies;
+              res.cookie('user', username);
+              res.redirect('/user/' + username);
+            })
+            .catch(function(err){
+              console.log('err', err);
+              res.redirect(500, 'signup');
+            })
+          });
+        });
       }
     })
 });
