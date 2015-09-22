@@ -103,13 +103,20 @@ router.post('/signin', function(req, res, next) {
       if (user.length === 0) {
         console.log('No user exist!');
         res.redirect(409, '/signin');
-      } else if (user[0].password !== password) {
-        console.log('Invalid password!');
-        res.redirect(409, '/signin');
       } else {
-        var cookie = req.cookies;
-        res.cookie('user', username);
-        res.redirect('/user/' + username);
+        bcrypt.compare(password, user[0].password, function(err, match){
+          if (err) {
+            console.err(err);
+          } 
+          if (match) {
+            var cookie = req.cookies;
+            res.cookie('user', username);
+            res.redirect('/user/' + username);
+          } else {
+            console.log('Invalid password!');
+            res.redirect(409, '/signin');
+          }
+        })
       }
 
     })
