@@ -1,9 +1,9 @@
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: 'us-cdbr-iron-east-02.cleardb.net' //127.0.0.1',
-    user: 'bcc1fc80012395'//root',
-    password: 'bfc5370d' //'',
+    host: 'us-cdbr-iron-east-02.cleardb.net', //127.0.0.1',
+    user: 'bcc1fc80012395', //root',
+    password: 'bfc5370d', //'',
     database: 'heroku_a2dcd4572cb36d6'
   }
 });
