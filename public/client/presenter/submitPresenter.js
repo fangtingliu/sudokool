@@ -25,9 +25,10 @@
           }
         }
       }
-      console.log('res', res)
       App.SubmitPresenter.render(res);
-      
+      setTimeout(function(){
+       $('div.result').text('');
+      }, 5000);
     });
 
     App.SubmitPresenter.render = function(res){
@@ -41,7 +42,7 @@
     if (res === 'solved') {
       return 'Congradulations! You solved it.';
     } else {
-      return 'Try again!';
+      return 'Ops! Try again!';
     }
   }
 
