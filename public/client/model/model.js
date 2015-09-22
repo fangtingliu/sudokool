@@ -20,7 +20,6 @@
 
     update: function (x, y, value) {
        Board.data[x][y] = value;
-       console.log(Board);
     },
 
     map: function(cb) {

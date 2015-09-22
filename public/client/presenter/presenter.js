@@ -11,7 +11,6 @@
     });
 
     this.render = function(){
-      console.log(Board.data)
       $('div.signin').hide();
       $('div.signup').hide();
       $view.html(Board.data.map(rowView));
