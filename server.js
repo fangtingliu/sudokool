@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
 
-var routes = require('./routes/index');
+var routes = require('./routes/routes');
 
 var app = express();
 
@@ -14,7 +14,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
+// add logo as favicon
 app.use(favicon(path.join(__dirname, 'public/images', 'logo.gif')));
 app.use(logger('dev'));
 app.use(partials());
