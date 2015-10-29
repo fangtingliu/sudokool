@@ -1,4 +1,4 @@
-# Sudokool
+# [Sudokool](https://sudokool.herokuapp.com/)
 
 This is my first personal project. It functions as a infinite sudoku game 
 store. Any user can play a game and store all played games and track performance by registering the app.
